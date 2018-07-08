@@ -1,6 +1,6 @@
 args <- commandArgs(trailingOnly = TRUE)
 
-# home_readme <- "../../../UBC/Courses/jharmse_home/README.md"
+home_readme <- "../../../UBC/Courses/jharmse_home/README.md"
 # home_readme <- args[1]
 
 text <- readChar(home_readme, nchars = file.info(home_readme)$size)
