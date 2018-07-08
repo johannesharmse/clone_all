@@ -37,3 +37,6 @@ rsconnect/
 
 # created repos
 docs/
+
+# created repo list
+src/repo_list.sh

@@ -2,8 +2,8 @@
 args <- commandArgs(trailingOnly = TRUE)
 
 # find file where repo links are saved
-home_readme <- "../../../UBC/Courses/jharmse_home/README.md"
-# home_readme <- args[1]
+# home_readme <- "../../../UBC/Courses/jharmse_home/README.md"
+home_readme <- args[1]
 
 # read in doc with repo links
 text <- readChar(home_readme, nchars = file.info(home_readme)$size)
@@ -19,12 +19,12 @@ links <- substr(repos, regexpr("\\]\\(", repos)+2, regexpr(")", repos)-1)
 links <- paste0("git clone ", links, ".git")
 
 # create file where clone commands should be saved
-if (file.exists('src/test.sh') == FALSE){
-  file.create('src/test.sh')
+if (file.exists('src/repo_list.sh') == FALSE){
+  file.create('src/repo_list.sh')
 }
 
 # add config line to start
 links <- c("#!/bin/sh", "", links)
 
 # save clone commands to shell script
-writeLines(links, con = 'src/test.sh')
+writeLines(links, con = 'src/repo_list.sh')
