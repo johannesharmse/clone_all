@@ -1,3 +1,11 @@
+library(stringr)
+
 home_readme <- "../../../UBC/Courses/jharmse_home/README.md"
 
 text <- readChar(home_readme, nchars = file.info(home_readme)$size)
+text <- strsplit(text, split = ' ')
+text <- unlist(text)
+
+base_url <- "https://github.ubc.ca/ubc-mds-2017/"
+
+repos <- text[grepl(base_url, text)]
