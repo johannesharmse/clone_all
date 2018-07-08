@@ -1,6 +1,7 @@
-library(stringr)
+args <- commandArgs(trailingOnly = TRUE)
 
-home_readme <- "../../../UBC/Courses/jharmse_home/README.md"
+# home_readme <- "../../../UBC/Courses/jharmse_home/README.md"
+# home_readme <- args[1]
 
 text <- readChar(home_readme, nchars = file.info(home_readme)$size)
 text <- strsplit(text, split = ' ')
@@ -13,3 +14,9 @@ repos <- text[grepl(base_url, text)]
 links <- substr(repos, regexpr("\\]\\(", repos)+2, regexpr(")", repos)-1)
 
 links <- paste0("git clone ", links, ".git")
+
+if (file.exists('test.sh') == FALSE){
+  file.create('test.sh')
+}
+
+writeLines(links, con = 'test.sh')
