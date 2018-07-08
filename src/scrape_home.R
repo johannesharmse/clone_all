@@ -9,3 +9,7 @@ text <- unlist(text)
 base_url <- "https://github.ubc.ca/ubc-mds-2017/"
 
 repos <- text[grepl(base_url, text)]
+
+links <- substr(repos, regexpr("\\]\\(", repos)+2, regexpr(")", repos)-1)
+
+links <- paste0("git clone ", links, ".git")
