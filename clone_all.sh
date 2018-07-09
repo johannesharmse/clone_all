@@ -15,4 +15,4 @@ mkdir "docs/repos"
 cd "docs/repos"
 
 # clone all repos
-bash ../../src/test.sh
+bash ../../src/repo_list.sh
